@@ -1,0 +1,11 @@
+GET http://localhost:3000/api/meter/2023-12-24T04:09:44.000Z
+
+###
+
+POST http://localhost:3000/api/meter/ 
+content-type: application/json
+
+{
+    "name": "102",
+    "measure": 1235.5
+}

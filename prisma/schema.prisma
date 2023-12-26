@@ -1,0 +1,17 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model meter {
+  id       String   @id @default(auto()) @map("_id") @db.ObjectId
+  createAt DateTime @default(now()) @db.Date
+  measure  Float
+  name     String
+
+  @@index([createAt(sort: Desc), name], map: "createAt_-1_name_1")
+}
